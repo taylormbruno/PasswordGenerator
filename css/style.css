@@ -19,6 +19,7 @@ h2 {
 
 .passBox {
     border: 2px dashed #4f4f4f;
+    border-radius: 2%;
     height: 50vh;
 }
 
