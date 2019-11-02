@@ -1,14 +1,15 @@
 var howMany = 0;
 var specChar = true;
-var specArray = ["~!@#$%^&*()_+-<>?/.;:"];
+var specStr = "~!@#$%^&*()_+-<>?/.;:";
 var capLet = true;
-var capArray = ["abcdefghijklmnopqrstuvwxyz"];
+var lowStr = "abcdefghijklmnopqrstuvwxyz";
 var lowLet = true;
-var lowArray = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+var capStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numChar = true;
-var numArray = ["1234567890"];
-var randStr = [""];
-var tempStr = [""];
+var numStr = "1234567890";
+var randStr = "";
+var tempStr = "";
+var tempChar = "";
 
 document.getElementById("passwordClick")
 .addEventListener("click", charNum);
@@ -17,8 +18,10 @@ document.getElementById("passwordClick")
 //   // document.getElementById("passwordClick");
 //   charNum();
 // }
+
 function charNum() {
   var howMany = prompt("Please select between 8 and 128 characters.");
+  console.log(howMany);
   if (howMany < 8 && howMany > 128) {
     alert("Try again");
   } 
@@ -27,14 +30,12 @@ function charNum() {
     isSpecTrue();
   }
 }
+
 function isSpecTrue() {
   var specChar = confirm("Press OK if you would like special characters. Otherwise, cancel.");
   if (specChar) {
     alert("including special");
-    for (i = 0; i < howMany; i++) {
-      tempStr = specArray[Math.floor(Math.random() * specArray.length)];
-      // return tempStr;
-    }
+    tempStr+=specStr;
     isCapTrue();
   } 
   else {
@@ -42,15 +43,12 @@ function isSpecTrue() {
     isCapTrue();
   }
 }
+
 function isCapTrue() {
   var capLet = confirm("Press OK if you would like capital letters. Otherwise, cancel.");
   if (capLet) {
     alert("including capitals");
-    for (i = 0; i < howMany; i++) {
-      tempStr += capArray[Math.floor(Math.random() * capArray.length)];
-      // return tempStr;
-
-    }
+    tempStr+=capStr;
     isLowTrue();
   } 
   else {
@@ -58,14 +56,12 @@ function isCapTrue() {
     isLowTrue();
   }
 }
+
 function isLowTrue() {
   var lowLet = confirm("Press OK if you would like lowercase letters. Otherwise, cancel.");
   if (lowLet) {
     alert("including lower");
-    for (i = 0; i < howMany; i++) {
-      tempStr += lowArray[Math.floor(Math.random() * lowArray.length)];
-      // return tempStr;
-    }
+    tempStr+=lowStr;
     isNumTrue();
   } 
   else {
@@ -73,14 +69,12 @@ function isLowTrue() {
     isNumTrue();
   }
 }
+
 function isNumTrue() {
   var numChar = confirm("Press OK if you would like to include numbers. Otherwise, cancel.");
-  if (numChar) {
+  if (numChar === true) {
     alert("including numbers");
-    for (i = 0; i < howMany; i++) {
-      tempStr += numArray[Math.floor(Math.random() * numArray.length)];
-      // return tempStr;
-    }
+    tempStr+=numStr;
     randPass();
   } 
   else {
@@ -88,23 +82,23 @@ function isNumTrue() {
     randPass();
   }
 }
-function randPass() {
-  for (i = 0; i < howMany; i++) {
-    randStr = tempStr[Math.floor(Math.random() * tempStr.length)];
-    // return randStr;
-  }
-  compPass();
-  // var cpuRand = gamePlay[Math.floor(Math.random() * gamePlay.length)];   
-  // random from RPS. cpuRand is cpu choice. gamePlay is options. 
 
+function randPass() {
+  console.log(howMany);
+  for (var i = 0; i < howMany; i++) {
+    var tempChar = tempStr[Math.floor(Math.random() * tempStr.length)];
+    randStr+=tempChar;
+  }
+  
+  finalPass();
 }
 
-function compPass() {
+function finalPass() {
   document.getElementById("passChange").textContent = randStr;
   console.log(randStr);
+  console.log(tempStr);
+  console.log(tempChar);
 }
 
 
 // function clipboardClick();
-
-// look into adding stopPropagation throughtout document.
