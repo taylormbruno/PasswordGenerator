@@ -1,104 +1,84 @@
 var howMany = 0;
 var specChar = true;
+// );
 var specStr = "~!@#$%^&*()_+-<>?/.;:";
 var capLet = true;
+// );
 var lowStr = "abcdefghijklmnopqrstuvwxyz";
 var lowLet = true;
+// );
 var capStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numChar = true;
+// );
 var numStr = "1234567890";
-var randStr = "";
-var tempStr = "";
-var tempChar = "";
 
-document.getElementById("passwordClick")
-.addEventListener("click", charNum);
 
-// function passwordClick() {
-//   // document.getElementById("passwordClick");
-//   charNum();
-// }
 
-function charNum() {
+
+function passwordClick() {
+  var randStr = "";
+  var validStr = "";
+  var tempStr = "";
   var howMany = prompt("Please select between 8 and 128 characters.");
-  console.log(howMany);
-  if (howMany < 8 && howMany > 128) {
+  if ((howMany < 8 || howMany > 128) || (howMany === null)) {
     alert("Try again");
+    return passwordClick();
   } 
   else {
     alert(howMany + " characters.");
-    isSpecTrue();
   }
-}
-
-function isSpecTrue() {
   var specChar = confirm("Press OK if you would like special characters. Otherwise, cancel.");
-  if (specChar) {
-    alert("including special");
-    tempStr+=specStr;
-    isCapTrue();
+  if (specChar === true) {
+    validStr+=specStr;
   } 
   else {
-    alert("no specials!");
-    isCapTrue();
+    alert("No specials.");
   }
-}
-
-function isCapTrue() {
   var capLet = confirm("Press OK if you would like capital letters. Otherwise, cancel.");
-  if (capLet) {
-    alert("including capitals");
-    tempStr+=capStr;
-    isLowTrue();
+  if (capLet === true) {
+      validStr+=capStr;
   } 
   else {
-    alert("no capitals!");
-    isLowTrue();
+    alert("No capitals.");
   }
-}
-
-function isLowTrue() {
   var lowLet = confirm("Press OK if you would like lowercase letters. Otherwise, cancel.");
-  if (lowLet) {
-    alert("including lower");
-    tempStr+=lowStr;
-    isNumTrue();
+  if (lowLet === true) {
+    validStr+=lowStr;
   } 
   else {
-    alert("no lower!");
-    isNumTrue();
+    alert("No lower.");
   }
-}
-
-function isNumTrue() {
   var numChar = confirm("Press OK if you would like to include numbers. Otherwise, cancel.");
   if (numChar === true) {
-    alert("including numbers");
-    tempStr+=numStr;
-    randPass();
-  } 
+    validStr+=numStr;
+  }
   else {
-    alert("no numbers!");
-    randPass();
+    alert("No numbers.");
   }
-}
-
-function randPass() {
-  console.log(howMany);
+  //Creating a tempStr from valid characters to create password;
   for (var i = 0; i < howMany; i++) {
-    var tempChar = tempStr[Math.floor(Math.random() * tempStr.length)];
-    randStr+=tempChar;
+    var tempStr = validStr[Math.floor(Math.random() * validStr.length)];
+    randStr+=tempStr;
   }
-  
-  finalPass();
-}
-
-function finalPass() {
   document.getElementById("passChange").textContent = randStr;
-  console.log(randStr);
-  console.log(tempStr);
-  console.log(tempChar);
+
+  //Checking for desired results.
+  console.log("Length: " + howMany);
+  console.log("Special characters: " + specChar);
+  console.log("Capital: " + capLet);
+  console.log("Lowercase: " + lowLet);
+  console.log("Number: " + numChar);
+  console.log("Valid characters: " + validStr);
+  console.log("Final Password: " + randStr);
 }
 
 
-// function clipboardClick();
+function clipboardClick() {
+  var copyText = document.getElementById("passChange");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("Copied the text:" + copyText.value);
+}
+
+

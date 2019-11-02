@@ -2,7 +2,9 @@
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Password Generator</title>
+        <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
     </head>
@@ -16,19 +18,17 @@
                     <h2 class="border-bottom border-black-50">
                         Generate a Password
                     </h2>
-                    <div class="passBox m-2">
-                        <h5 class="text-muted" id="passChange">
-                            Your Secure Password
-                        </h5>
+                    <div class="passBox m-2 text-muted">
+                        <textarea class="container textBox text-center text-muted" id="passChange" style="resize: none;background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0)">Your Secure Password</textarea>
                     </div>
                     <div class="row border-top border-black-50">
                         <div class="col-6 text-center">
-                            <button class="border border-danger rounded-pill bg-danger text-white" id="passwordClick">
+                            <button class="border border-danger rounded-pill bg-danger text-white" id="passwordClick" onclick="passwordClick()">
                                 Generate Password
                             </button>
                         </div>
                         <div class="col-6 text-center">
-                            <button class="border border-muted rounded-pill bg-secondary text-light" id="clipboardClick">
+                            <button class="border border-muted rounded-pill bg-secondary text-light" id="clipboardClick" onclick="clipboardClick()">
                                 Copy to Clipboard
                             </button>
                         </div>

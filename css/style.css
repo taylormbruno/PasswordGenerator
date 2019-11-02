@@ -10,7 +10,7 @@ h1 {
 
 .card {
   width: 90vw;
-  height: 85vh;
+  height: 75vh;
 }
 
 h2 {
@@ -20,16 +20,17 @@ h2 {
 .passBox {
   border: 2px dashed #4f4f4f;
   border-radius: 2%;
-  height: 50vh;
+  height: 40vh;
+  font-size:25px;
 }
 
-h5 {
-  text-align: center;
-  margin-top: 15px;
+#passchange {
+  font-size: inherit;
 }
 
 button {
   margin-top: 15px;
-  font-size: 24px;
+  font-size: 18px;
   padding: 10px 30px 10px 30px;
+  max-height: 15vh;
 }
