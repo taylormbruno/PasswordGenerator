@@ -1,3 +1,4 @@
+
 var howMany = 0;
 
 var specChar = true;
@@ -19,66 +20,79 @@ function passwordClick() {
   var randStr = "";
   var validStr = "";
   var tempStr = "";
-  var howMany = prompt("Please select between 8 and 128 characters.");
-  if ((howMany < 8 || howMany > 128) || (howMany === null)) {
-    alert("Try again");
-    return passwordClick();
-  } 
-  else {
-    alert(howMany + " characters.");
+
+  var howMany = document.getElementById("inputChar");
+  console.log(howMany.value);
+
+  var capLetCheck = document.getElementById("gridCheck1");
+  if ($(capLetCheck).is(':checked')) {
+    validStr+=capStr;
   }
-  var specChar = confirm("Press OK if you would like special characters. Otherwise, cancel.");
-  if (specChar === true) {
-    validStr+=specStr;
-  } 
   else {
-    alert("No specials.");
+    capLet = false;
+    console.log("No capital letters.");
   }
-  var capLet = confirm("Press OK if you would like capital letters. Otherwise, cancel.");
-  if (capLet === true) {
-      validStr+=capStr;
-  } 
-  else {
-    alert("No capitals.");
-  }
-  var lowLet = confirm("Press OK if you would like lowercase letters. Otherwise, cancel.");
-  if (lowLet === true) {
+
+  var lowLetCheck = document.getElementById("gridCheck2");
+  if ($(lowLetCheck).is(':checked')) {
     validStr+=lowStr;
-  } 
-  else {
-    alert("No lower.");
   }
-  var numChar = confirm("Press OK if you would like to include numbers. Otherwise, cancel.");
-  if (numChar === true) {
+  else {
+    lowLet = false;
+    console.log("No lowercase letters.");
+  }
+  
+  var numCheck = document.getElementById("gridCheck3");
+  if ($(numCheck).is(':checked')) {
     validStr+=numStr;
   }
   else {
-    alert("No numbers.");
+    numChar = false;
+    console.log("No numbers.");
   }
-  //Creating a tempStr from valid characters to create password;
-  for (var i = 0; i < howMany; i++) {
-    var tempStr = validStr[Math.floor(Math.random() * validStr.length)];
-    randStr+=tempStr;
+  
+  var specCheck = document.getElementById("gridCheck4");
+  if ($(specCheck).is(':checked')) {
+    validStr+=specStr;
   }
-  document.getElementById("passChange").textContent = randStr;
+  else {
+    specChar = false;
+    console.log("No special characters.");
+  }
 
-  //Checking for desired results.
-  console.log("Length: " + howMany);
-  console.log("Special characters: " + specChar);
-  console.log("Capital: " + capLet);
-  console.log("Lowercase: " + lowLet);
-  console.log("Number: " + numChar);
-  console.log("Valid characters: " + validStr);
-  console.log("Final Password: " + randStr);
+  //Creating a tempStr from valid characters to create password;
+  if ((howMany < 0) || (howMany > 129) || (howMany === NaN)) {
+   if ((capLet && lowLet && numChar && specChar) === false) {
+    $('#passwordFinal').text("Please select amount and type of characters.");
+   }
+   else {
+    $('#passwordFinal').text("Please select a number between 8 and 128.");
+   }
+  }
+  else if (((capLet && lowLet && numChar && specChar) === false) && ((howMany > 0) || (howMany < 129))) {
+    $('#passwordFinal').text("Please select the type of characters from the checkbox above.");
+  }
+  else {
+    for (var i = 0; i < howMany.value; i++) {
+      var tempStr = validStr[Math.floor(Math.random() * validStr.length)];
+      randStr+=tempStr;
+    }
+    var copyText = document.getElementById("passwordFinal");
+    var copytextVal = copyText.value;
+    console.log(copytextVal);var clipPop = document.getElementById("clipboardClick");
+    clipPop.dataset.content = copytextVal;
+    document.getElementById("passwordFinal").textContent = randStr;
+  }
 }
 
 
 function clipboardClick() {
-  var copyText = document.getElementById("passChange");
+  var copyText = document.getElementById("passwordFinal");
   copyText.select();
   copyText.setSelectionRange(0, 99999);
   document.execCommand("copy");
-  alert("Copied the text:" + copyText.value);
+  
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  });
 }
-
-

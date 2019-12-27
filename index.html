@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-9 col-form-label">How many characters for this password? Choose between 8 and 128.</label>
                         <div class="col-sm-3">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="8">
+                            <input type="email" class="form-control" id="inputChar" placeholder="8">
                         </div>
                     </div>
                     <span>What type of characters would you like to include?</span> 
@@ -33,19 +33,19 @@
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <input class="form-check-input" type="checkbox" id="gridCheck2">
                         <label class="form-check-label" for="gridCheck1">
                             Lowercase Letters (abc)
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <input class="form-check-input" type="checkbox" id="gridCheck3">
                         <label class="form-check-label" for="gridCheck1">
                             Numbers (123)
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <input class="form-check-input" type="checkbox" id="gridCheck4">
                         <label class="form-check-label" for="gridCheck1">
                             Special Characters (@!&)
                         </label>
@@ -53,7 +53,7 @@
                 </form>
             </div>
             <div class="passBox m-2 text-muted">
-                <span id="passwordFinal">Your Secure Password</span>
+                <textarea id="passwordFinal" class="container textBox text-center text-muted" style="resize: none;background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0)">Your Secure Password</textarea>
             </div>
             <div class="row">
             <div class="col-6 text-center">
@@ -62,11 +62,15 @@
                 </button>
             </div>
             <div class="col-6 text-center">
-                <button class="border border-muted rounded-pill bg-secondary text-light" id="clipboardClick" onclick="clipboardClick()">
+                <button class="border border-muted rounded-pill bg-secondary text-light" id="clipboardClick" onclick="clipboardClick()" data-container="body" data-toggle="popover" data-placement="top" data-content="Your Secure Password" title="Copied the text:">
                     Copy to Clipboard
                 </button>
             </div>
         </div> 
-        <script src="./java/password.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="js/password.js"></script>
     </body>
 </html>
