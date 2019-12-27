@@ -1,15 +1,15 @@
 var howMany = 0;
+
 var specChar = true;
-// );
 var specStr = "~!@#$%^&*()_+-<>?/.;:";
+
 var capLet = true;
-// );
-var lowStr = "abcdefghijklmnopqrstuvwxyz";
-var lowLet = true;
-// );
 var capStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+var lowLet = true;
+var lowStr = "abcdefghijklmnopqrstuvwxyz";
+
 var numChar = true;
-// );
 var numStr = "1234567890";
 
 

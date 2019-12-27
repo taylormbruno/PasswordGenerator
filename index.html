@@ -10,30 +10,61 @@
     </head>
     <body>
         <div class="wrapper bg-light">
-            <h1 class="text-dark mb-5">
+            <h1 class="text-dark">
                 Password Generator
             </h1>
-            <div class="card m-auto">
-                <div class="card-body">
-                    <h2 class="border-bottom border-black-50">
-                        Generate a Password
-                    </h2>
-                    <div class="passBox m-2 text-muted">
-                        <textarea class="container textBox text-center text-muted" id="passChange" style="resize: none;background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0)">Your Secure Password</textarea>
-                    </div>
-                    <div class="row border-top border-black-50">
-                        <div class="col-6 text-center">
-                            <button class="border border-danger rounded-pill bg-danger text-white" id="passwordClick" onclick="passwordClick()">
-                                Generate Password
-                            </button>
-                        </div>
-                        <div class="col-6 text-center">
-                            <button class="border border-muted rounded-pill bg-secondary text-light" id="clipboardClick" onclick="clipboardClick()">
-                                Copy to Clipboard
-                            </button>
+            <div id="criteriaBox">
+                <h2 class="border-bottom border-black-50">
+                    Generate a Password
+                </h2>
+                <form>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-9 col-form-label">How many characters for this password? Choose between 8 and 128.</label>
+                        <div class="col-sm-3">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="8">
                         </div>
                     </div>
-                </div>
+                    <span>What type of characters would you like to include?</span> 
+                    <br>  
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            Capital Letters (ABC)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            Lowercase Letters (abc)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            Numbers (123)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            Special Characters (@!&)
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="passBox m-2 text-muted">
+                <span id="passwordFinal">Your Secure Password</span>
+            </div>
+            <div class="row">
+            <div class="col-6 text-center">
+                <button class="border border-danger rounded-pill bg-danger text-white" id="passwordClick" onclick="passwordClick()">
+                    Generate Password
+                </button>
+            </div>
+            <div class="col-6 text-center">
+                <button class="border border-muted rounded-pill bg-secondary text-light" id="clipboardClick" onclick="clipboardClick()">
+                    Copy to Clipboard
+                </button>
             </div>
         </div> 
         <script src="./java/password.js"></script>

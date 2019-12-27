@@ -8,29 +8,31 @@ h1 {
   margin-top: 30px;
 }
 
-.card {
-  width: 90vw;
-  height: 75vh;
-}
-
 h2 {
   padding: 40px 0px 20px 10px;
+}
+
+#criteriaBox {
+  padding-bottom: 20px;
+  width: 75vw;
+  margin: 0 auto;
 }
 
 .passBox {
   border: 2px dashed #4f4f4f;
   border-radius: 2%;
+  width: 75vw;
   height: 40vh;
-  font-size:25px;
-}
-
-#passchange {
-  font-size: inherit;
+  margin: 0 auto !important;
+  font-size:40px;
+  text-align: center;
+  padding: 20px;
 }
 
 button {
-  margin-top: 15px;
+  margin: 15px 0px;
   font-size: 18px;
   padding: 10px 30px 10px 30px;
   max-height: 15vh;
 }
+
