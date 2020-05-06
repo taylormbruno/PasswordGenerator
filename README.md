@@ -1,6 +1,6 @@
 # Password Generator
 
-<img src="./passwordGen.png" width=60%>
+<img src="./public/assets/images/passwordGen.png" width=60%>
 
 [Link to project](https://taylormbruno.github.io/PasswordGenerator)
 
